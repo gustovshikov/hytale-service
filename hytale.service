@@ -1,0 +1,27 @@
+[Unit]
+Description=Hytale Dedicated Server
+After=network.target
+
+[Service]
+Type=simple
+User=hytale
+Group=hytale
+# IMPORTANT: Sets the folder context so the script finds Assets.zip
+WorkingDirectory=/home/hytale
+
+# The path to your executable script
+ExecStart=/usr/bin/screen -DmS hytale /home/hytale/hytale-start.sh
+
+# Run our custom stop script when shutting down
+ExecStop=/home/hytale/hytale-stop.sh
+TimeoutStopSec=90
+
+# Restart the server automatically if it crashes
+Restart=on-failure
+RestartSec=10
+# Output logs to systemd journal
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
