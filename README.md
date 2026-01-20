@@ -28,4 +28,7 @@ Once the pre-setup is done follow these steps to have the scripts working. Modif
 ```bash
 0 6,14,22 * * * /home/hytale/auto-update.sh >> /var/log/hytale-update.log 2>&1
 ```
-5. you can test it by runnign teh cron command as root. `/home/hytale/auto-update.sh >> /var/log/hytale-update.log 2>&1`
+5. you can test it by runnign teh cron command as root. 
+```bash
+/home/hytale/auto-update.sh >> /var/log/hytale-update.log 2>&1
+```
