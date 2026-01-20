@@ -5,10 +5,11 @@ ENTER=$(printf \\r)
 
 # 1. Send Warnings
 # We inject the variable $ENTER so the server definitely processes the command
-/usr/bin/screen -S hytale -p 0 -X stuff "notify Server stopping in 10 seconds...$ENTER"
-/usr/bin/screen -S hytale -p 0 -X stuff "say Server stopping in 10 seconds...$ENTER"
-/usr/bin/screen -S hytale -p 0 -X stuff "say Please disconnect and then try to reconnect shortly...$ENTER"
-/usr/bin/screen -S hytale -p 0 -X stuff "notify Please disconnect and then try to reconnect shortly...$ENTER"
+/usr/bin/screen -S hytale -p 0 -X stuff "notify Server stopping/restarting in 10 seconds...$ENTER"
+/usr/bin/screen -S hytale -p 0 -X stuff "say Server stopping/restarting in 10 seconds...$ENTER"
+sleep 1
+/usr/bin/screen -S hytale -p 0 -X stuff "say Please disconnect and then try to reconnect in a few minutes...$ENTER"
+/usr/bin/screen -S hytale -p 0 -X stuff "notify Please disconnect and then try to reconnect in a few minutes...$ENTER"
 
 # 2. Wait for players to react
 sleep 10
