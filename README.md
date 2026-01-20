@@ -12,7 +12,7 @@ My server has a hytale user acount that runs the server and the game files are a
 
 ## Setup
 
-Once the pre-setup is done follow these steps to have the scripts working. Modify the user and locations to your environment.
+Once the pre-setup is done, follow these steps to have the scripts working. Modify the user and locations to your environment.
 
 1. download the script files to the hytale home dir `/home/hytale/`.
    - `hytale-start.sh`
@@ -28,7 +28,7 @@ Once the pre-setup is done follow these steps to have the scripts working. Modif
 ```bash
 0 6,14,22 * * * /home/hytale/auto-update.sh >> /var/log/hytale-update.log 2>&1
 ```
-5. you can test it by runnign teh cron command as root. 
+5. you can test it by runnign the cron command as root. 
 ```bash
 /home/hytale/auto-update.sh >> /var/log/hytale-update.log 2>&1
 ```
