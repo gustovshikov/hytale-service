@@ -16,12 +16,12 @@ sleep 10
 
 # 3. Graceful Shutdown
 # Send 'stop' and press Enter
-/usr/bin/screen -S hytale -p 0 -X stuff "stop$ENTER"
+/usr/bin/screen -S hytale -p 0 -X eval 'stuff "stop \015"'
 
 # 4. Wait loop with safety limit
-# We wait up to 30 seconds for the server to save and close.
+# We wait up to 60 seconds for the server to save and close.
 # If it takes longer, we exit so systemd can handle the cleanup.
-MAX_RETRIES=85
+MAX_RETRIES=60
 COUNT=0
 
 while /usr/bin/screen -list | grep -q "hytale"; do
