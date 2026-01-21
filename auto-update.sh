@@ -13,9 +13,9 @@ ENTER=$(printf \\r)
 
 # Function to send commands to the screen session
 send_msg() {
-    su - $USER_NAME -c "screen -S hytale -p 0 -X stuff 'notify $1$ENTER'"
+    su - $USER_NAME -c "screen -S hytale -p 0 -X stuff '/notify $1$ENTER'"
     sleep 1
-    su - $USER_NAME -c "screen -S hytale -p 0 -X stuff 'say $1$ENTER'"
+    su - $USER_NAME -c "screen -S hytale -p 0 -X stuff '/say $1$ENTER'"
 }
 
 # --- 1. Check for Updates ---
