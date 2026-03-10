@@ -1,0 +1,39 @@
+[Unit]
+Description=Hytale Dedicated Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__USER_NAME__
+Group=__GROUP_NAME__
+WorkingDirectory=__HOME_DIR__
+UMask=0027
+
+ExecStartPre=-/usr/bin/screen -S __SCREEN_SESSION__ -X quit
+ExecStart=/usr/bin/screen -D -m -S __SCREEN_SESSION__ __HOME_DIR__/hytale-start.sh
+ExecStop=__HOME_DIR__/hytale-stop.sh
+TimeoutStopSec=90
+
+Restart=on-failure
+RestartSec=10
+
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=full
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+LockPersonality=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+SystemCallArchitectures=native
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
